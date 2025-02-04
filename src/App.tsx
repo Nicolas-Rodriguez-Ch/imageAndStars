@@ -1,9 +1,10 @@
 import './App.css';
+import { ImageSlider } from './components/ImageSlider/ImageSlider';
 
 function App() {
   return (
     <>
-      <h1 className='bg-teal-900'>Buenas</h1>
+      <ImageSlider />
     </>
   );
 }
