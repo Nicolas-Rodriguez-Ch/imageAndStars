@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ImageSlide } from './ImageSlide';
+import { StarRating } from './StartRating/StarRating';
 const images = import.meta.glob('../../assets/*.jpg', { eager: true });
 
 const imageArray = Object.values(images).map(
@@ -26,9 +27,8 @@ export const ImageSlider = () => {
         &#10094; {}
       </button>
 
-      {imageArray.map((image, index) => (
-        <ImageSlide key={index} src={image} isActive={index === activeIndex} />
-      ))}
+      <ImageSlide src={imageArray[activeIndex]} />
+      <StarRating />
 
       <button
         onClick={goNext}

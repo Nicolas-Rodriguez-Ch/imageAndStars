@@ -1,15 +1,11 @@
 import { ImageSlideProps } from '../../utils/types/Types';
 
-export const ImageSlide = ({ isActive, src }: ImageSlideProps) => {
+export const ImageSlide = ({ src }: ImageSlideProps) => {
   return (
-    <div
-      className={`absolute inset-0 m-4 transition-opacity duration-700 flex items-center justify-center ${
-        isActive ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
+    <div className='flex items-center justify-center w-full h-full p-4'>
       <img
         src={src}
-        alt='Slide'
+        alt={src}
         className='max-w-full max-h-full object-contain rounded-2xl'
       />
     </div>
