@@ -5,8 +5,22 @@ export const StarRating = () => {
   const filledStar = '★';
 
   const [selectedStars, setSelectedStars] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(-1);
+
   const handleClick = (index: number) => {
-    setSelectedStars(index + 1);
+    if (selectedStars === 1 && index === 0) {
+      setSelectedStars(0);
+    } else {
+      setSelectedStars(index + 1);
+    }
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(-1);
   };
 
   return (
@@ -20,8 +34,12 @@ export const StarRating = () => {
               index < selectedStars ? 'text-yellow-500' : 'text-gray-400'
             }`}
             onClick={() => handleClick(index)}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
           >
-            {index < selectedStars ? filledStar : emptyStar}
+            {index <= hoveredIndex || index < selectedStars
+              ? filledStar
+              : emptyStar}
           </span>
         ))}
       </div>
