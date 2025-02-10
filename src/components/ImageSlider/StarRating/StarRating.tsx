@@ -7,7 +7,7 @@ export const StarRating = () => {
   const [selectedStars, setSelectedStars] = useState(0);
   const starArray = new Array(5).fill(emptyStar, selectedStars);
   return (
-    <div>
+    <div className='flex gap-4'>
       {starArray.map((star) => (
         <h1 key={star}>{star}</h1>
       ))}

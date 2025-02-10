@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ImageSlide } from './ImageSlide';
-import { StarRating } from './StartRating/StarRating';
+import { StarRating } from './StarRating/StarRating';
 const images = import.meta.glob('../../assets/*.jpg', { eager: true });
 
 const imageArray = Object.values(images).map(
@@ -27,8 +27,14 @@ export const ImageSlider = () => {
         &#10094; {}
       </button>
 
-      <ImageSlide src={imageArray[activeIndex]} />
-      <StarRating />
+      <div className='flex flex-col items-center justify-center w-full h-full'>
+        <div className='h-4/5 w-full flex items-center justify-center'>
+          <ImageSlide src={imageArray[activeIndex]} />
+        </div>
+        <div className='h-1/5 flex items-center justify-center'>
+          <StarRating />
+        </div>
+      </div>
 
       <button
         onClick={goNext}
